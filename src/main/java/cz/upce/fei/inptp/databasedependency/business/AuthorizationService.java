@@ -20,6 +20,13 @@ public class AuthorizationService {
         this.personRolesDao = new PersonRolesDAO();
     }
 
+    public AuthorizationService(PersonDAO persondao, PersonRolesDAO personRolesDao) {
+        this.persondao = persondao;
+        this.personRolesDao = personRolesDao;
+    }
+    
+    
+
     // TODO: add tests
     // TODO: Authorize(person, "/section/subsection", rw) - Person("/section/subsection", rw) - pass
     // TODO: Authorize(person, "/section/subsection", rw) - Person("/section/subsection", ro) - fail
