@@ -21,15 +21,15 @@ public class AuthorizationService {
     }
 
     // TODO: add tests
-    // TODO: Authorize(person, "/section/subsection", rw) - Person("/section/subsection", rw) - pass
-    // TODO: Authorize(person, "/section/subsection", rw) - Person("/section/subsection", ro) - fail
-    // TODO: Authorize(person, "/section/subsection", rw) - Person("/section", rw) - pass
-    // TODO: Authorize(person, "/section/subsection", rw) - Person("/section", ro) - fail
-    // TODO: Authorize(person, "/section/subsection", rw) - Person("/", rw) - pass
-    // TODO: Authorize(person, "/section/subsection", rw) - Person("/", ro) - fail
-    // TODO: Authorize(person, "/section/subsection", rw) - Person("/section/subsection", admin) - pass
-    // TODO: Authorize(person, "/section/subsection", rw) - Person("/section", admin) - pass
-    // TODO: Authorize(person, "/section/subsection", rw) - Person("/", admin) - pass
+    // TODO: Authorize(person, "/section/subsection", rw) - PersonRole([Role("/section/subsection", rw)]) - pass
+    // TODO: Authorize(person, "/section/subsection", rw) - PersonRole([Role("/section/subsection", ro)]) - fail
+    // TODO: Authorize(person, "/section/subsection", rw) - PersonRole([Role("/section", rw)]) - pass
+    // TODO: Authorize(person, "/section/subsection", rw) - PersonRole([Role("/section", ro)]) - fail
+    // TODO: Authorize(person, "/section/subsection", rw) - PersonRole([Role("/", rw)]) - pass
+    // TODO: Authorize(person, "/section/subsection", rw) - PersonRole([Role("/", ro)]) - fail
+    // TODO: Authorize(person, "/section/subsection", rw) - PersonRole([Role("/section/subsection", admin)]) - pass
+    // TODO: Authorize(person, "/section/subsection", rw) - PersonRole([Role("/section", admin)]) - pass
+    // TODO: Authorize(person, "/section/subsection", rw) - PersonRole([Role("/", admin)]) - pass
     public boolean Authorize(Person person, String section, AccessOperationType operationType) {
         String roleWhere = persondao.getRoleWhereStringFor(person);
 
