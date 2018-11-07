@@ -1,5 +1,7 @@
 package cz.upce.fei.inptp.databasedependency.business;
 
+import com.google.inject.Inject;
+import cz.upce.fei.inptp.databasedependency.dao.DAO;
 import cz.upce.fei.inptp.databasedependency.dao.PersonDAO;
 import cz.upce.fei.inptp.databasedependency.entity.Person;
 import java.io.UnsupportedEncodingException;
@@ -15,15 +17,16 @@ import java.util.logging.Logger;
  */
 public class AuthenticationService {
 
-    private PersonDAO persondao;
+    private DAO<Person> persondao;
 
-    public AuthenticationService() {
-        this.persondao = new PersonDAO();
-    }
-
-    public AuthenticationService(PersonDAO persondao) {
+//    public AuthenticationService() {
+//        this.persondao = new PersonDAO();
+//    }
+    @Inject
+    public AuthenticationService(DAO<Person> persondao) {
         this.persondao = persondao;
     }
+
     // TODO: add tests
     // TODO: Authenticate("user", "pass") - Person("user", encryptPwd("pass")) - pass
     // TODO: Authenticate("user", "invalid") - Person("user", encryptPwd("pass")) - fail

@@ -44,24 +44,24 @@ public class AuthorizationServiceTest {
     /**
      * Test of Authorize method, of class AuthorizationService.
      */
-    @Test
-    public void testAuthorize() {
-        System.out.println("Authorize");
-        String section = "";
-        Person operation = null;
-        String savedSection = "";
-        Person savedOperation = null;
-
-        PersonDAO persondaoMock = Mockito.mock(PersonDAO.class);
-        PersonRolesDAO personRolesDaoMock = Mockito.mock(PersonRolesDAO.class);
-
-        AccessOperationType operationType = null;
-        AuthorizationService instance = new AuthorizationService();
-        boolean expResult = false;
-        boolean result = instance.Authorize(operation, section, operationType);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testAuthorize() {
+//        System.out.println("Authorize");
+//        String section = "";
+//        Person operation = null;
+//        String savedSection = "";
+//        Person savedOperation = null;
+//
+//        PersonDAO persondaoMock = Mockito.mock(PersonDAO.class);
+//        PersonRolesDAO personRolesDaoMock = Mockito.mock(PersonRolesDAO.class);
+//
+//        AccessOperationType operationType = null;
+//        AuthorizationService instance = new AuthorizationService();
+//        boolean expResult = false;
+//        boolean result = instance.Authorize(operation, section, operationType);
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 
 }

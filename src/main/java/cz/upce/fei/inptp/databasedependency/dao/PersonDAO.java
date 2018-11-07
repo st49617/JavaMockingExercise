@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 /**
  * DAO object for Person entity.
  */
-public class PersonDAO implements DAO<Person> {
+public class PersonDAO implements IPersonDAO {
 
     @Override
     public void save(Person object) {
@@ -34,13 +34,13 @@ public class PersonDAO implements DAO<Person> {
             if (!rs.next()) {
                 return null;
             }
-            
+
             Person p = new Person(
                     rs.getInt("id"),
                     rs.getString("name"),
                     rs.getString("password")
             );
-            
+
             return p;
         } catch (SQLException ex) {
             Logger.getLogger(PersonDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -48,7 +48,7 @@ public class PersonDAO implements DAO<Person> {
 
         return null;
     }
-    
+
     public String getRoleWhereStringFor(Person person) {
         return "id = " + person.getId();
     }

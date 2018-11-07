@@ -1,10 +1,13 @@
 package cz.upce.fei.inptp.databasedependency.business;
 
+import com.google.inject.Inject;
+import cz.upce.fei.inptp.databasedependency.dao.DAO;
 import cz.upce.fei.inptp.databasedependency.dao.PersonRolesDAO;
 import cz.upce.fei.inptp.databasedependency.dao.PersonDAO;
 import cz.upce.fei.inptp.databasedependency.entity.PersonRole;
 import cz.upce.fei.inptp.databasedependency.entity.Person;
 import cz.upce.fei.inptp.databasedependency.entity.Role;
+import cz.upce.fei.inptp.databasedependency.dao.IPersonDAO;
 
 /**
  * Authorization service. User is authorized to access specified part of system,
@@ -12,20 +15,18 @@ import cz.upce.fei.inptp.databasedependency.entity.Role;
  */
 public class AuthorizationService {
 
-    private PersonDAO persondao;
-    private PersonRolesDAO personRolesDao;
+    private IPersonDAO persondao;
+    private DAO<PersonRole> personRolesDao;
 
-    public AuthorizationService() {
-        this.persondao = new PersonDAO();
-        this.personRolesDao = new PersonRolesDAO();
-    }
-
-    public AuthorizationService(PersonDAO persondao, PersonRolesDAO personRolesDao) {
+//    public AuthorizationService() {
+//        this.persondao = new PersonDAO();
+//        this.personRolesDao = new PersonRolesDAO();
+//    }
+    @Inject
+    public AuthorizationService(IPersonDAO persondao, DAO<PersonRole> personRolesDao) {
         this.persondao = persondao;
         this.personRolesDao = personRolesDao;
     }
-    
-    
 
     // TODO: add tests
     // TODO: Authorize(person, "/section/subsection", rw) - Person("/section/subsection", rw) - pass
